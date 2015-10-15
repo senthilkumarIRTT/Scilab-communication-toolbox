@@ -1,7 +1,5 @@
 function y = genqammod(x,const)
 //GENQAMMOD General quadrature amplitude modulation
-//WARNING: This is an obsolete function and may be removed in the future.
-//        Please use comm.GeneralQAMModulator System object instead.
 //   Y = GENQAMMOD(X,CONST) outputs the complex envelope of the modulation
 //  of the message signal X using quadrature amplitude modulation.  The
 //  message signal must consist of integers between 0 and 1 less than the
