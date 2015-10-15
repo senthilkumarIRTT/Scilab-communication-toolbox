@@ -1,7 +1,5 @@
 function z = dpskdemod(y,M,varargin)
 // DPSKDEMOD Differential phase shift keying demodulation.
-//WARNING: This is an obsolete function and may be removed in the future.
-//        Please use comm.DPSKDemodulator System object instead.
 //  Z = DPSKDEMOD(Y,M) demodulates the complex envelope Y of a DPSK
 //  modulated signal. M is the alphabet size and must be an integer. For
 //  two-dimensional signals, the function treats each column as 1 channel.
