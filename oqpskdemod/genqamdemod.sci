@@ -1,7 +1,5 @@
 function z = genqamdemod(y,const)
 //GENQAMDEMOD General quadrature amplitude demodulation.
-//WARNING: This is an obsolete function and may be removed in the future.
-//        Please use comm.GeneralQAMDemodulator System object instead.
 //   Z = GENQAMDEMOD(Y,CONST) demodulates the complex envelope Y of a
 //  quadrature amplitude modulated signal. CONST is a one dimensional
 //  vector that specifies the signal mapping. For two-dimensional signals,
