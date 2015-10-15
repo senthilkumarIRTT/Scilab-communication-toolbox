@@ -1,7 +1,5 @@
 function z = oqpskdemod(y,varargin)
 // OQPSKDEMOD Offset quadrature phase shift keying demodulation.
-//WARNING: This is an obsolete function and may be removed in the future.
-//         Please use comm.OQPSKDemodulator System object instead.
 //   Z = OQPSKDEMOD(Y) demodulates the complex envelope Y of an OQPSK
 //   modulated signal. For two-dimensional signals, the function treats
 //   each column as 1 channel. This function implicitly downsamples by a
