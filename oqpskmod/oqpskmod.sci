@@ -1,7 +1,5 @@
 function y = oqpskmod(x,varargin);
 //OQPSKMOD Offset quadrature phase shift keying modulation.
-//WARNING: This is an obsolete function and may be removed in the future.
-//         Please use comm.OQPSKModulator System object instead.
 //   Y = OQPSKMOD(X) outputs the complex envelope of the modulation of the
 //  message signal X using OQPSK modulation. The message signal must
 //  consist of integers between 0 and 3. For two-dimensional signals, the
