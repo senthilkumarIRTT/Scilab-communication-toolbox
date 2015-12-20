@@ -20,7 +20,8 @@ if length(size(x))>2
 end
 //Validate modulation type
 if (~(type(modulation)==10))|(~strcmpi(modulation,'QAM'))&(~strcmpi(modulation,'PSK'))...
-        &(~strcmpi(modulation,'FSK'))&(~strcmpi(modulation,'PAM'))&(~strcmpi(modulation,'DPSK'))
+        &(~strcmpi(modulation,'FSK'))&(~strcmpi(modulation,'PAM'))&(~strcmpi(modulation,'DPSK'))&(~strcmpi(modulation,'qam'))&(~strcmpi(modulation,'psk'))...
+        &(~strcmpi(modulation,'fsk'))&(~strcmpi(modulation,'pam'))&(~strcmpi(modulation,'dpsk'))
     error("comm:bin2gray:ModulationTypeError");
 end
 //Validate modulation order
@@ -32,9 +33,9 @@ end
 if (max(max(x)) >= order)
     error("comm:bin2gray:XError");
 end
-if ((modulation == 'PSK')|(modulation == 'PAM')|(modulation == 'DPSK')|(modulation == 'FSK')) 
+if ((modulation == 'PSK')|(modulation == 'PAM')|(modulation == 'DPSK')|(modulation == 'FSK')|(modulation == 'psk')|(modulation == 'pam')|(modulation == 'dpsk')|(modulation == 'fsk'))
     y = uint8(1)
-elseif(modulation=='QAM')
+elseif((modulation=='QAM')|(modulation=='qam'))
     y= uint8(0)
 end
    select y
@@ -109,7 +110,7 @@ end
         //Make sure that mapping is a vector, when used to name the symbols
         //column-wise starting from left upper corner, results in a gray mapped
         //constellation.
-        [dummy,index]=members(0:order-1,mapping);
+       [dummy,index]=members(0:order-1,mapping);
         mapping = index - 1;
     else
         error("comm:bin2gray:ModulationTypeUnknown")
