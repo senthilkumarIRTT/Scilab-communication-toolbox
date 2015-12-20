@@ -1,4 +1,4 @@
-function [output,mapping] = gray2bin(x,modulation,order)
+  function [output,mapping] = gray2bin(x,modulation,order)
   //BIN2GRAY Gray encode
 //Y = BIN2GRAY(X,MODULATION,M) generates a Gray encoded output with the same
 //  dimensions as its input parameter X.  The input X can be a scalar, vector or
@@ -12,29 +12,30 @@ if rr<3 then
 end;
 //Validate numeric x data
 if isempty(x)
-    error("comm:bin2gray:InputEmpty");
+    error("comm:gray2bin:InputEmpty");
 end
 //x must be a scalar, vector or a 2D matrix
 if length(size(x))>2
-    error("comm:bin2gray:InputDimensions");
+    error("comm:gray2bin:InputDimensions");
 end
 //Validate modulation type
 if (~(type(modulation)==10))|(~strcmpi(modulation,'QAM'))&(~strcmpi(modulation,'PSK'))...
-        &(~strcmpi(modulation,'FSK'))&(~strcmpi(modulation,'PAM'))&(~strcmpi(modulation,'DPSK'))
-    error("comm:bin2gray:ModulationTypeError");
+        &(~strcmpi(modulation,'FSK'))&(~strcmpi(modulation,'PAM'))&(~strcmpi(modulation,'DPSK'))&(~strcmpi(modulation,'qam'))&(~strcmpi(modulation,'psk'))...
+        &(~strcmpi(modulation,'fsk'))&(~strcmpi(modulation,'pam'))&(~strcmpi(modulation,'dpsk'))
+    error("comm:gray2bin:ModulationTypeError");
 end
 //Validate modulation order
 if (order < 2)|(isinf(order)|...
         (~isreal(order))|(floor(log2(order)) ~= log2(order)))
-    error("comm:bin2gray:ModulationOrderError");
+    error("comm:gray2bin:ModulationOrderError");
 end
 //Check for overflows - when x is greater than the modulation order
 if (max(max(x)) >= order)
-    error("comm:bin2gray:XError");
+    error("comm:gray2bin:XError");
 end
-if ((modulation == 'PSK')|(modulation == 'PAM')|(modulation == 'DPSK')|(modulation == 'FSK')) 
+if ((modulation == 'PSK')|(modulation == 'PAM')|(modulation == 'DPSK')|(modulation == 'FSK')|(modulation == 'psk')|(modulation == 'pam')|(modulation == 'dpsk')|(modulation == 'fsk'))
     y = uint8(1)
-elseif(modulation=='QAM')
+elseif((modulation=='QAM')|(modulation=='qam'))
     y= uint8(0)
 end
    select y
